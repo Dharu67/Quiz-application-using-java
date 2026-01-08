@@ -1,0 +1,46 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class CategoryScreen implements ActionListener {
+
+    JFrame frame = new JFrame("Select Category");
+    JButton india = new JButton("India");
+    JButton science = new JButton("Science");
+    JButton maths = new JButton("Maths");
+
+    public CategoryScreen() {
+        frame.setSize(400,400);
+        frame.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        india.setBounds(100,50,200,60);
+        science.setBounds(100,150,200,60);
+        maths.setBounds(100,250,200,60);
+
+        india.addActionListener(this);
+        science.addActionListener(this);
+        maths.addActionListener(this);
+
+        frame.add(india);
+        frame.add(science);
+        frame.add(maths);
+
+        frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        frame.dispose();
+
+        if(e.getSource()==india){
+            new Quiz("INDIA");
+        }
+        if(e.getSource()==science){
+            new Quiz("SCIENCE");
+        }
+        if(e.getSource()==maths){
+            new Quiz("MATHS");
+        }
+    }
+}
